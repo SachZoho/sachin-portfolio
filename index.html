@@ -1,1 +1,864 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachin Muttappanavar — Lead SDET</title>
+<meta name="description" content="Sachin Muttappanavar — Lead SDET with 7+ years in test automation, data pipeline QA, and cloud infrastructure. Based in Bengaluru, India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Azeret+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Azeret Mono', 'SF Mono', Consolas, monospace;
+  --font-display: 'Fraunces', Georgia, serif;
+
+  --bg: #0f1419;
+  --bg-alt: #131a20;
+  --surface: #1a232c;
+  --surface-elevated: #1f2a35;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.13);
+  --text: #e2e8f0;
+  --text-bright: #f1f5f9;
+  --text-dim: #8b9aa8;
+
+  --accent: #5eead4;
+  --accent-dim: rgba(94,234,212,0.1);
+  --accent-2: #fbbf24;
+  --accent-2-dim: rgba(251,191,36,0.08);
+  --accent-3: #f97316;
+  --accent-3-dim: rgba(249,115,22,0.08);
+
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #faf7f5;
+    --bg-alt: #f5f0ec;
+    --surface: #ffffff;
+    --surface-elevated: #fdfbf9;
+    --border: rgba(0,0,0,0.07);
+    --border-bright: rgba(0,0,0,0.13);
+    --text: #2d3748;
+    --text-bright: #1a202c;
+    --text-dim: #6b7280;
+    --accent: #0d9488;
+    --accent-dim: rgba(13,148,136,0.08);
+    --accent-2: #b45309;
+    --accent-2-dim: rgba(180,83,9,0.06);
+    --accent-3: #c2410c;
+    --accent-3-dim: rgba(194,65,12,0.06);
+    --green: #059669;
+    --green-dim: rgba(5,150,105,0.08);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 60% 50% at 50% 0%, var(--accent-dim) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, var(--accent-3-dim) 0%, transparent 50%);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* NAV */
+nav.topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px clamp(20px, 4vw, 48px);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.2s ease;
+}
+nav.topnav .brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: -0.3px;
+}
+nav.topnav .brand span { color: var(--accent); }
+nav.topnav ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+nav.topnav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+nav.topnav a:hover { color: var(--text-bright); text-decoration: none; }
+
+@media (max-width: 640px) {
+  nav.topnav ul { gap: 16px; }
+  nav.topnav a { font-size: 12px; }
+}
+
+/* HERO */
+.hero {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(100px, 18vh, 160px) 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: end;
+}
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+}
+
+.hero__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero__tag::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 7vw, 68px);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  color: var(--text-bright);
+  margin-bottom: 16px;
+}
+.hero__role {
+  font-size: clamp(17px, 2vw, 21px);
+  color: var(--text-dim);
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+.hero__role strong { color: var(--text); font-weight: 600; }
+.hero__summary {
+  font-size: 16px;
+  color: var(--text-dim);
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+.hero__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: right;
+}
+@media (max-width: 768px) {
+  .hero__contact { text-align: left; flex-direction: row; flex-wrap: wrap; gap: 16px 24px; }
+}
+.hero__contact a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.hero__contact a:hover { color: var(--accent); }
+.hero__contact a::before {
+  content: attr(data-icon);
+  margin-right: 6px;
+  opacity: 0.7;
+}
+
+/* LAYOUT */
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+.section--alt { background: var(--bg-alt); max-width: none; padding: 64px 0; }
+.section--alt > .section { padding: 0 24px; }
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+}
+
+/* KPI ROW */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.kpi-card:hover { border-color: var(--border-bright); transform: translateY(-2px); }
+.kpi-card__value {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--text-bright);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.kpi-card__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+
+/* CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.ve-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.ve-card:hover { border-color: var(--border-bright); }
+.ve-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 6px;
+}
+.ve-card .subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.ve-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: var(--border-bright);
+}
+.tl-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+.tl-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.tl-item__header h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+.tl-item__header .date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.tl-item .company {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.tl-item .role-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-2);
+  margin: 16px 0 8px;
+}
+.tl-item ul {
+  list-style: none;
+  padding: 0;
+}
+.tl-item li {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.tl-item li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--text-dim);
+  font-weight: 600;
+  opacity: 0.5;
+}
+
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.skill-card__title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-card li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* WEB APPS */
+.app-card {
+  display: flex;
+  gap: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  align-items: start;
+}
+.app-card:hover { border-color: var(--border-bright); transform: translateY(-2px); }
+@media (max-width: 700px) {
+  .app-card { flex-direction: column; gap: 16px; }
+}
+.app-card__icon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.app-card__body { flex: 1; min-width: 0; }
+.app-card__body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+.app-card__body .tagline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.app-card__body p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.app-card__body .tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.app-card__body .tech span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--accent-2-dim);
+  color: var(--accent-2);
+}
+.app-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.app-card__cta:hover { background: var(--accent); color: var(--bg); text-decoration: none; }
+
+/* RESEARCH */
+.research-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-3);
+  border-radius: 12px;
+  padding: 24px;
+}
+.research-card h3 { font-size: 17px; font-weight: 600; color: var(--text-bright); margin-bottom: 8px; }
+.research-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+/* EDUCATION */
+.edu-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.edu-card .degree { font-size: 16px; font-weight: 600; color: var(--text-bright); }
+.edu-card .school { font-size: 14px; color: var(--accent); margin: 4px 0 8px; }
+.edu-card .year { font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); }
+.edu-card .modules { font-size: 13px; color: var(--text-dim); margin-top: 12px; line-height: 1.6; }
+
+/* CERTS */
+.cert-list { display: flex; flex-wrap: wrap; gap: 12px; }
+.cert-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 48px 24px 60px;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+footer p { font-size: 13px; color: var(--text-dim); }
+footer .links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+footer .links a { font-family: var(--font-mono); font-size: 12px; color: var(--text-dim); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero > *, .section-label, .section-title, .kpi-card, .ve-card, .tl-item, .skill-card, .app-card, .research-card, .edu-card, .cert-item {
+  animation: fadeUp 0.5s ease-out both;
+}
+.hero > * { animation-delay: calc(var(--i, 0) * 0.08s); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="brand">Sachin<span>.</span>M</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#webapps">Web Apps</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="hero__tag" style="--i:0">Lead SDET - Bengaluru, India</div>
+    <h1 class="hero__name" style="--i:1">Sachin<br>Muttappanavar</h1>
+    <p class="hero__role" style="--i:2">Lead SDET with <strong>7+ years</strong> in test automation, data pipeline QA, and cloud infrastructure</p>
+    <p class="hero__summary" style="--i:3">I build automation frameworks for real-time streaming pipelines on AWS and Azure, lead QA teams, and ship reliable data products. Currently leading a team of 4 SDETs at Sitecore while staying hands-on with framework architecture.</p>
+  </div>
+  <div class="hero__contact" style="--i:4">
+    <a href="mailto:sachm1995@gmail.com" data-icon="[+]">sachm1995@gmail.com</a>
+    <a href="tel:+918123174913" data-icon="[T]">+91 8123174913</a>
+    <a href="https://www.linkedin.com/in/sachin-muttappanavar" target="_blank" rel="noopener" data-icon="[in]">LinkedIn</a>
+  </div>
+</header>
+
+<section class="section" id="about">
+  <div class="section-label">Overview</div>
+  <h2 class="section-title">At a glance</h2>
+
+  <div class="kpi-row">
+    <div class="kpi-card" style="animation-delay: 0.1s">
+      <div class="kpi-card__value">7+</div>
+      <div class="kpi-card__label">Years Experience</div>
+    </div>
+    <div class="kpi-card" style="animation-delay: 0.16s">
+      <div class="kpi-card__value">4</div>
+      <div class="kpi-card__label">Team Size Led</div>
+    </div>
+    <div class="kpi-card" style="animation-delay: 0.22s">
+      <div class="kpi-card__value">~1K</div>
+      <div class="kpi-card__label">Integration Tests Built</div>
+    </div>
+    <div class="kpi-card" style="animation-delay: 0.28s">
+      <div class="kpi-card__value">2</div>
+      <div class="kpi-card__label">Cloud Platforms (AWS + Azure)</div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="ve-card" style="animation-delay: 0.34s">
+      <h3>Framework Architecture</h3>
+      <div class="subtitle">Python - TypeScript - Behave - Playwright</div>
+      <p>Built integration and e2e frameworks from scratch - a ~1,000-test Python+Behave suite for streaming pipelines, a Cypress+TypeScript suite now being migrated to Playwright, and a CubeJS integration framework for UI-served data validation.</p>
+    </div>
+    <div class="ve-card" style="animation-delay: 0.40s">
+      <h3>Cloud and Infrastructure</h3>
+      <div class="subtitle">AWS - Azure - Kubernetes - Docker - Helm</div>
+      <p>Owned the test automation for an AWS-to-Azure migration of a real-time analytics stack. Built Locust load testing on AKS via Helm, self-hosted Report Portal, and configured CI/CD pipelines across GitHub Actions, Bitbucket, and ArgoCD.</p>
+    </div>
+    <div class="ve-card" style="animation-delay: 0.46s">
+      <h3>Leadership and Mentorship</h3>
+      <div class="subtitle">Team Lead - Sprint Owner - Mentor</div>
+      <p>Leading a QA team of 4 across two dev teams. Run ceremonies, own test strategy and release sign-off, represent QA in early product discussions, and mentor engineers on framework design and tooling decisions.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section--alt">
+  <section class="section" id="experience">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Experience</h2>
+
+    <div class="timeline">
+      <div class="tl-item" style="animation-delay: 0.1s">
+        <div class="tl-item__header">
+          <h3>Lead SDET</h3>
+          <span class="date">Mar 2025 - Present</span>
+        </div>
+        <div class="company">Sitecore Ireland Limited</div>
+
+        <div class="role-label">Technical Leadership and Delivery</div>
+        <ul>
+          <li>Lead a QA team of 4 (1 Senior SDET, 2 SDETs), owning test strategy across two development teams.</li>
+          <li>Represent QA in early feature discussions with Product and Engineering leadership - shaping design and timelines before implementation begins.</li>
+          <li>Own test plan creation and progress reporting to upper management; proactively raise QA risks and delivery concerns.</li>
+          <li>Improved the QA sign-off process for production deployments and resolved a QA-feature team communication gap.</li>
+        </ul>
+
+        <div class="role-label">Automation Framework Development</div>
+        <ul>
+          <li>Built a Python + Behave framework (~1,000 integration tests) validating a real-time streaming pipeline: Eventstream to Eventhouse transformation to golden table validation via public APIs.</li>
+          <li>Built a parallel CubeJS integration framework validating UI-served data via cube queries.</li>
+          <li>Own a Cypress + TypeScript framework (~50 e2e tests) across 3 environments and 8 regions.</li>
+          <li>Building a new Playwright + TypeScript framework from scratch and leading the migration of the Cypress suite onto it.</li>
+        </ul>
+
+        <div class="role-label">Test Infrastructure and Performance</div>
+        <ul>
+          <li>Built a Locust-based load testing framework on AKS via Helm (migrated from Azure Load Testing to cut cost).</li>
+          <li>Deployed and maintain a self-hosted Report Portal instance on AKS, backed by Azure PostgreSQL.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item" style="animation-delay: 0.16s">
+        <div class="tl-item__header">
+          <h3>Senior SDET</h3>
+          <span class="date">Mar 2022 - Mar 2025</span>
+        </div>
+        <div class="company">Sitecore Ireland Limited</div>
+        <ul>
+          <li>Tested a real-time data analytics pipeline on AWS: Kafka + Flink (Scala), PostgreSQL, Java service layer.</li>
+          <li>Tested nightly batch pipelines using Spark (Scala), Athena, and Step Functions; validated CubeJS as the service layer.</li>
+          <li>Built a Docker-based mocking framework from scratch to validate ingestion independently of live upstream systems.</li>
+          <li>Built the test automation framework for the AWS-to-Azure migration (Kafka/Flink to Eventhub/Eventstream/Eventhouse).</li>
+          <li>Integrated test suites into CodeBuild/CodePipeline stages and ArgoCD post-sync hooks; worked with EKS.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item" style="animation-delay: 0.22s">
+        <div class="tl-item__header">
+          <h3>Software Engineer</h3>
+          <span class="date">Dec 2019 - Nov 2020</span>
+        </div>
+        <div class="company">Accenture Software Solutions, Bangalore</div>
+        <ul>
+          <li>Tested SOAP API integrations using SmartBear SOAP UI with Groovy scripts for data-driven XML payloads.</li>
+          <li>Maintained and enhanced a VBScript UI automation framework, adding new test coverage.</li>
+          <li>Integrated test suites with HP ALM for centralized execution tracking and defect reporting.</li>
+          <li>Followed Agile (Scrum/Kanban) methodology; mentored junior team members after promotion.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item" style="animation-delay: 0.28s">
+        <div class="tl-item__header">
+          <h3>Associate Software Engineer</h3>
+          <span class="date">Feb 2018 - Nov 2019</span>
+        </div>
+        <div class="company">Accenture Software Solutions, Bangalore</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section" id="webapps">
+  <div class="section-label">Side Projects</div>
+  <h2 class="section-title">Web Apps</h2>
+  <p style="font-size:15px; color:var(--text-dim); margin-bottom:32px; max-width:600px; line-height:1.7;">Personal projects built to solve real problems - live, interactive, and deployed on Streamlit Community Cloud.</p>
+
+  <div class="app-card" style="animation-delay: 0.1s">
+    <div class="app-card__icon">B</div>
+    <div class="app-card__body">
+      <h3>Net-Worth Tracker</h3>
+      <div class="tagline">Personal investment and net-worth dashboard</div>
+      <p>A full-featured investment tracker that pulls live market prices for stocks, mutual funds, gold, and silver, computes total net worth, and stores daily snapshots for trend analysis. Built with Supabase for persistent storage, a daily GitHub Actions snapshot job, and an AI assistant powered by Sarvam AI for portfolio insights.</p>
+      <div class="tech">
+        <span>Python</span>
+        <span>Streamlit</span>
+        <span>Supabase</span>
+        <span>yfinance</span>
+        <span>GitHub Actions</span>
+        <span>Sarvam AI</span>
+      </div>
+      <a href="https://networth-tracker.streamlit.app/" target="_blank" rel="noopener" class="app-card__cta">
+        Visit App ->
+      </a>
+    </div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.16s">
+    <div class="app-card__icon">G</div>
+    <div class="app-card__body">
+      <h3>Mutual Fund Return Estimator</h3>
+      <div class="tagline">Estimate and visualise mutual fund returns</div>
+      <p>An interactive tool for estimating mutual fund returns based on investment amount, duration, and expected rate of return. Features SIP and lump sum calculators with visual breakdowns of principal vs. returns over time.</p>
+      <div class="tech">
+        <span>Python</span>
+        <span>Streamlit</span>
+        <span>Pandas</span>
+        <span>Plotly</span>
+      </div>
+      <a href="https://mf-return-estimator-a5po8zz6afobecv45vtl3c.streamlit.app/?theme=dark" target="_blank" rel="noopener" class="app-card__cta">
+        Visit App ->
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section--alt">
+  <section class="section" id="skills">
+    <div class="section-label">Technical</div>
+    <h2 class="section-title">Skills and Tools</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card" style="animation-delay: 0.1s">
+        <div class="skill-card__title">Languages</div>
+        <ul>
+          <li>Java</li><li>Python</li><li>Scala</li><li>JavaScript</li><li>TypeScript</li><li>Groovy</li><li>SQL</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.16s">
+        <div class="skill-card__title">Test Automation</div>
+        <ul>
+          <li>Playwright</li><li>Cypress</li><li>Selenium</li><li>Cucumber</li><li>Behave</li><li>TestNG</li><li>SOAP UI</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.22s">
+        <div class="skill-card__title">AWS</div>
+        <ul>
+          <li>S3</li><li>CodePipeline</li><li>CodeBuild</li><li>Step Functions</li><li>Athena</li><li>EKS</li><li>ECR</li><li>DynamoDB</li><li>Bedrock</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.28s">
+        <div class="skill-card__title">Azure</div>
+        <ul>
+          <li>AKS</li><li>Blob Storage</li><li>Fabric</li><li>Eventstream</li><li>Eventhouse</li><li>Eventhubs</li><li>KQL</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.34s">
+        <div class="skill-card__title">CI/CD and DevOps</div>
+        <ul>
+          <li>GitHub Actions</li><li>Bitbucket Pipelines</li><li>ArgoCD</li><li>Docker</li><li>Kubernetes</li><li>Helm</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.40s">
+        <div class="skill-card__title">Data and Streaming</div>
+        <ul>
+          <li>Kafka</li><li>Flink</li><li>Spark</li><li>Hadoop</li><li>Hive</li><li>CubeJS</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.46s">
+        <div class="skill-card__title">Tools and Tracking</div>
+        <ul>
+          <li>Report Portal</li><li>Jira</li><li>Rally</li><li>HP ALM</li><li>Confluence</li><li>Postman</li><li>Git</li>
+        </ul>
+      </div>
+      <div class="skill-card" style="animation-delay: 0.52s">
+        <div class="skill-card__title">Leadership</div>
+        <ul>
+          <li>Team Leadership</li><li>Mentoring</li><li>Stakeholder Management</li><li>Test Strategy</li><li>Agile/Scrum</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section">
+  <div class="section-label">Academic</div>
+  <h2 class="section-title">Education and Research</h2>
+
+  <div class="card-grid" style="margin-bottom: 32px;">
+    <div class="edu-card" style="animation-delay: 0.1s">
+      <div class="degree">M.Sc. in Data Analytics (ML Specialization)</div>
+      <div class="school">National College of Ireland, Dublin</div>
+      <div class="year">Jan 2021 - Jan 2022</div>
+      <div class="modules">Modules: Statistics, Data Mining and Machine Learning, Deep Learning, Business Intelligence, Modelling and Simulation, Research in Computing.</div>
+    </div>
+  </div>
+
+  <div class="research-card" style="animation-delay: 0.16s">
+    <h3>CricSum - Cricket News Generation via Abstractive Summarization</h3>
+    <p>A system to summarize cricket matches from live text commentary using abstractive summarization techniques. Fine-tuned pre-trained models (BART, T5) on a custom-scraped dataset and evaluated results using ROUGE score. Source code and dataset available on GitHub.</p>
+  </div>
+</section>
+
+<div class="section--alt">
+  <section class="section">
+    <div class="section-label">Additional</div>
+    <h2 class="section-title">Certifications and Interests</h2>
+
+    <div class="cert-list" style="margin-bottom: 32px;">
+      <div class="cert-item" style="animation-delay: 0.1s">IBM Data Science Professional Certificate - Coursera</div>
+      <div class="cert-item" style="animation-delay: 0.16s">HackerRank Java Certification</div>
+    </div>
+
+    <div class="card-grid">
+      <div class="ve-card" style="animation-delay: 0.22s">
+        <h3>Big Data Conference</h3>
+        <div class="subtitle">Accenture, Bangalore</div>
+        <p>Attended Big Data conference at Accenture, Bangalore - keeping pace with evolving data engineering and analytics ecosystems.</p>
+      </div>
+      <div class="ve-card" style="animation-delay: 0.28s">
+        <h3>Division-Level Badminton</h3>
+        <div class="subtitle">Karnataka, India</div>
+        <p>Competed in division-level badminton competition in Karnataka - maintaining discipline and competitive spirit beyond work.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="contact">
+  <div class="links">
+    <a href="mailto:sachm1995@gmail.com">sachm1995@gmail.com</a>
+    <a href="tel:+918123174913">+91 8123174913</a>
+    <a href="https://www.linkedin.com/in/sachin-muttappanavar" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://networth-tracker.streamlit.app/" target="_blank" rel="noopener">Net-Worth Tracker</a>
+    <a href="https://mf-return-estimator-a5po8zz6afobecv45vtl3c.streamlit.app/" target="_blank" rel="noopener">MF Return Estimator</a>
+  </div>
+  <p>Sachin Muttappanavar - Lead SDET - Bengaluru, India</p>
+</footer>
+
+</body>
+</html>
